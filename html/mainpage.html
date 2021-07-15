@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../css/assets.css" />
+    <link rel="stylesheet" href="../css/mainpage-style.css" />
+
+    <!-- Open Forms Script-->
+    <script>
+
+        //Functions toggle form visibiliy by updating display values
+        function openLoginForm() {
+            document.getElementById("loginForm").style.display = "block";
+        }
+
+        function closeLoginForm() {
+            document.getElementById("loginForm").style.display = "none";
+        }
+
+        function openSignUpPanel() {
+            document.getElementById("signUpPanel").style.display = "block";
+        }
+
+        function closeSignUpPanel() {
+            document.getElementById("signUpPanel").style.display = "none";
+        }
+    </script>
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <container style="color: #3dd2cc"> CCSCMW </container>
+        <container>
+            <div class="nav-links">
+                <a href="#">About</a>
+                <a href="#">Publications</a>
+                <a href="#">Contact</a>
+            </div>
+        </container>
+
+        <container>
+            <button class="login-button" onclick="openLoginForm()">
+                <img src="../img/icons8-person-50.png" height="20" width="20" />
+                Login
+            </button>
+            <button class="signup-button" onclick="openSignUpPanel()">Sign Up</button>
+        </container>
+    </header>
+
+    <!-- Page Content -->
+    <main-box>
+
+        <!-- Left box contains organization info -->
+        <left-box>
+            <img src="../img/logo_transparent.png" width="250" height="250" style="margin-left: 250px" />
+            <br />
+            <desc>
+                <p>
+                    The Consortium for Computing Sciences in Colleges Midwest (CCSCMW) is a non-profit organization
+                    focused on promoting quality computing curricula and the effective use of computing in colleges
+                    and universities. <br /><br />
+
+                    The CCSCMW typically holds its annual conference in mid autumn. Visit our about page for more
+                    information regarding our conference and steps to participate.
+                </p>
+            </desc>
+
+        </left-box>
+
+        <!-- Right box contains image and form popups -->
+        <div class="right-box">
+            <div class="content">
+                <img src="../img/main2.jpg" style="object-fit: cover" height="800" width="740" />
+            </div>
+
+            <!-- Login popup -->
+            <div class="form-popup" id="loginForm">
+                <form action="/action_page.php" class="form-container">
+                    <h2>Login</h2>
+
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" name="email" required>
+
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+
+                    <button type="submit" class="btn">Login</button>
+                    <button type="button" class="btn cancel" onclick="closeLoginForm()">Close</button>
+                </form>
+            </div>
+
+            <!-- SignUp popup-->
+            <div class="form-popup" id="signUpPanel">
+                <form action="/action_page.php" class="form-container">
+
+                    <h2>Sign Up</h2>
+                   
+                    <button class="btn">Sign Up As Author</button>
+                    <button class="btn">Sign Up As Reviewer</button>
+                    
+                    <button type="button" class="btn cancel" onclick="closeSignUpPanel()">Close</button>
+                </form>
+            </div>
+        </div>
+    </main-box>
+
+    <!-- Footer -->
+    <footer>
+       <box>
+           <table class="ftable">
+               <tr>
+                   <th>CONTACT</th>
+               </tr>
+
+               <tr>
+                   <td><p>CCSCMW Papers Chair<br />Dr. Steve Smith<br />s.smith@ccscmw.org<br />123-456-7890 ext. 1234</p></td>
+               </tr>
+
+               <tr>
+                   <td><p>CCSCMW Conference Committee Chair<br />Dr. Jane Jones<br />j.jones@ccscmw.org<br />123-456-7890 ext. 5678</p></td>
+               </tr>
+           </table>
+
+           <table class="ftable">
+               <tr>
+                   <th>NAVIGATE</th>
+               </tr>
+
+               <tr>
+                   <td><a href="#">Contact</a></td>
+               </tr>
+
+               <tr>
+                   <td><a href="#">About</a></td>
+               </tr>
+
+               <tr>
+                   <td><a href="#">Help</a></td>
+               </tr>
+
+               <tr>
+                   <td><a href="#">Publications</a></td>
+               </tr>
+
+               <tr>
+                   <td><a href="#">Author Signup</a></td>
+               </tr>
+
+               <tr>
+                   <td><a href="#">Reviewer Signup</a></td>
+               </tr>
+           </table>
+       </box>
+    </footer>
+</body>
+</html>

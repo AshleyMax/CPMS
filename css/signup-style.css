@@ -1,0 +1,43 @@
+﻿body
+{
+    background-color: #f4f4f4;
+}
+
+panel 
+{
+    display: block;
+    background-color: white;
+    width: 600px;
+    height: 600px;
+    margin-left: 450px;
+    margin-top: 120px;
+    margin-bottom: 150px;
+    padding: 10px;
+    overflow-y: scroll;
+    
+}
+
+/* Heading Styling */
+h2 
+{
+    font-family: 'Trebuchet MS';
+    font-size: 20px;
+    color: #022B3A;
+    text-align: center;
+}
+
+h3 
+{   
+    font-family: 'Trebuchet MS';
+    font-size: 15px;
+    color: #022B3A;
+    text-align: left;
+}
+
+h4 
+{
+    font-family: 'Trebuchet MS';
+    font-size: 15px;
+    color: #181818;
+    text-align: left;
+}

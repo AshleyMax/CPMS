@@ -1,0 +1,51 @@
+﻿body
+{
+    font-family: "Trebuchet MS";
+}
+
+form-container
+{
+    display: block;
+    margin: 20px;
+}
+
+pw-container
+{
+    display: inline-flex;
+    margin-left: 20px;
+}
+
+/* Button Styling */
+.modify-button, .save-button 
+{
+    color: white;
+    border: 20px;
+    border-radius: 5px;
+    border-color: #1F7A8C;
+    background-color: #022B3A;
+    font-size: 15px;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+}
+
+.modify-button:hover, .save-button:hover 
+{
+    transition-duration: 0.4s;
+    background-color: #011e28;
+    border-color: #011e28;
+}
+
+/* Heading Styling */
+h2 
+{
+    text-align: left !important;
+    padding-left: 5px;
+}
+
+h3
+{
+    text-align: left !important;
+    padding-left: 0px;
+    font-family: "Trebuchet MS" !important;
+}

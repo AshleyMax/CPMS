@@ -1,0 +1,40 @@
+﻿ review-form 
+ {
+     background-color: #f4f4f4;
+     height: 650px;
+     width: 60%;
+     margin-top: 50px;
+     margin-left: 150px;
+     display: block;
+     padding: 15px;
+     overflow-y: scroll;
+
+ }
+
+/* Custom resized text boxes for larger inputs*/
+ .resized-text
+ {
+     height: 150px;
+     width: 550px;
+ }
+
+ .resized-title-text
+ {
+     width: 350px;
+ }
+
+/* Heading Styling */
+h1 {
+    font-size: 25px;
+    color: #191919;
+    font-family: Calibri;
+    text-align: center;
+}
+
+h2 {
+    font-size: 20px;
+    color: #191919;
+    font-family: Calibri;
+    text-align: left;
+}
+ 

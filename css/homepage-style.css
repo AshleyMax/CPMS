@@ -1,0 +1,62 @@
+﻿/* Page content container */
+nav-box 
+{
+    display: block;
+    width: 40%;
+    margin-left: 450px;
+    margin-top: 75px;
+    margin-bottom: 75px;
+    height: 550px;
+    background-color: #f4f4f4;
+    font-family: "Trebuchet MS";
+    border: 3px solid #f4f4f4;
+    border-radius: 10px;
+}
+
+/* Button Styling */
+.nav-box-btn 
+{
+    height: 200px;
+    width: 200px;
+    margin: 40px 40px 40px 50px;
+    background-color: #1F7A8C;
+    border: none;
+    color: white;
+    font-family: "Trebuchet MS";
+}
+
+.nav-box-btn a
+{
+    color: white;
+    font-family: "Trebuchet MS";
+    text-decoration: none;
+}
+
+.nav-box-btn a:hover
+{
+    color: white;
+    font-family: "Trebuchet MS";
+    text-decoration: none;
+}
+
+
+.nav-box-btn:hover 
+{
+    transition-duration: 0.2s;
+    background-color: #022B3A;
+}
+
+
+/* Link Styling */
+nav-links
+{
+    display: inline;
+}
+
+/* Horizontal Line Styling */
+
+hr.hr1
+{
+    border-top: 1px solid #c3c3c3;
+}
+

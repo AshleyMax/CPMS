@@ -1,0 +1,36 @@
+﻿/* insert <table> element inside add-entry-box
+   for admin table maintenance pages
+*/
+add-entry-box 
+{
+    margin: 20px;
+    display: block;
+    max-width: 1300px;
+    height: auto;
+    background-color: #f4f4f4;
+    overflow-x: scroll;
+}
+
+/* Column of DB table to store add/modify buttons */
+action-div
+{
+    display: inline;
+    margin: 0;
+    width:100px;
+}
+
+/* Button Styling */
+action-btn{
+    display: inline;
+    width: 100px;
+}
+
+/* Custom resized & text aligned text box for <table> element */
+.resized-table-text
+{
+    width: 100%;
+    text-align: center;
+    background-color: #f4f4f4;
+    border: 1px solid #dbdbdb;
+}
+
