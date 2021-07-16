@@ -1,4 +1,36 @@
-﻿<!DOCTYPE html>
+﻿<?php
+
+ include '../server/util.php';
+
+ session_start();
+
+ //if session username is not set deny entry
+ if(!isset($_SESSION["username"]))
+ {
+     $_SESSION["msg"] = "You must be logged in to view this page.";
+     header("Location: noaccess-login.php");
+ }
+ //if session username is not empty validate user is registered reviewr
+ else
+ {
+     //if session username is not empty, 
+     if (!empty($_SESSION["username"]))
+         $EmailAddress = $_SESSION["username"];
+
+     $db = connect_db();
+
+     validate_author($db, $EmailAddress);
+ }
+
+ if (isset($_SESSION["message"]))
+ {
+     echo'<script type="text/javascript">alert("' . $_SESSION['message'] . '");</script>';
+     unset($_SESSION["message"]);
+ }
+ 
+ $row = get_reviewer_info($db, $EmailAddress);
+?>
+<!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="../css/assets.css" />
@@ -15,19 +47,12 @@
         <sidebar>
             <button class="sidebar-btn">
                 <img src="../img/icons8-person-50.png" />
-                <br />My Account
+                <br /><a href="myaccount-a.php">My Account</a>
             </button>
-
-            <button class="sidebar-btn">
-                <img src="../img/icons8-dashboard-50.png" />
-                <br />Dashboard
-            </button>
-
 
             <button class="sidebar-btn">
                 <img src="../img/icons8-paper-50.png" />
-                <br />
-                Papers
+                <br /><a href="papers-authors.php">Papers</a>
             </button>
         </sidebar>
 
@@ -44,53 +69,13 @@
                         <img src="../img/icons8-upload-60.png" />
                         Upload New Paper
                     </button>
+                    <!-- Option for file upload -->
+                        <form action="../server/upload.php" method="post" enctype="multipart/form-data">
+                            <input type="file" name="file" />
+                               <br />
+                            <input type="submit" value="Upload" />
+                        </form>
                 </paper-box>
-
-
-                <paper-box>
-                    <button class="delete-paper-btn">
-                        <img src="../img/icons8-delete-bin-48.png" height="20" width="20" />
-                    </button>
-                    <h1>Paper</h1>
-                    <h1>Lorem Ipsum Dolor sit Amet Consectetur Adipiscing Elit</h1>
-                    <br><br>
-                    <h2>Topic: Lorem Ipsum Dolor</h2>
-                    <h2>Submitted: 06/18/2021 - 11:21 AM</h2>
-                </paper-box>
-
-
-                <paper-box>
-                    <button class="delete-paper-btn">
-                        <img src="../img/icons8-delete-bin-48.png" height="20" width="20" />
-                    </button>
-                    <h1>Paper</h1>
-                    <h1>Lorem Ipsum Dolor sit Amet Consectetur Adipiscing Elit</h1>
-                    <br><br>
-
-                    <h2>Topic: Lorem Ipsum Dolor</h2>
-                    <h2>Submitted: 06/21/2021 - 5:27 PM</h2>
-                </paper-box>
-
-                <paper-box>
-                    <button class="delete-paper-btn">
-                        <img src="../img/icons8-delete-bin-48.png" height="20" width="20" />
-                    </button>
-                    <h1>Paper</h1>
-                    <h1>Lorem Ipsum Dolor sit Amet Consectetur Adipiscing Elit</h1>
-                    <br><br>
-                    <h2>Topic: Lorem Ipsum Dolor</h2>
-                    <h2>Submitted: 06/22/2021 - 7:39 PM</h2>
-                </paper-box>
-
-                <paper-box>
-                    <button class="delete-paper-btn">
-                        <img src="../img/icons8-delete-bin-48.png" height="20" width="20" />
-                    </button>
-                    <h1>Paper</h1>
-                    <h1>Lorem Ipsum Dolor sit Amet Consectetur Adipiscing Elit</h1>
-                    <br><br>
-                    <h2>Topic: Lorem Ipsum Dolor</h2>
-                    <h2>Submitted: 06/30/2021 - 9:36 AM</h2>
                 </paper-box>
 
             </container3>

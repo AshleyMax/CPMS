@@ -8,7 +8,6 @@ include '../server/util.php';
         $_SESSION["msg"] = "You must be logged in to view this page.";
         header("Location: noaccess-login.php");
     }
-
     //if session username is not empty validate user is registered author
     else
     {
@@ -20,13 +19,11 @@ include '../server/util.php';
 
         validate_author($db, $EmailAddress);
     }
-    
-    //handle logout
-    if(isset($_GET['logout']))
+
+    if (isset($_SESSION["message"]))
     {
-        session_destroy();
-        unset($_SESSION["username"]);
-        header("Location : ../html/mainpage.html");
+        echo'<script type="text/javascript">alert("' . $_SESSION['message'] . '");</script>';
+        unset($_SESSION["message"]);
     }
 ?>
 
@@ -46,7 +43,7 @@ include '../server/util.php';
 
     <!-- Page Content -->
     <welcome-bar>
-        Welcome, <?php get_author_first($db, $EmailAddress);?>
+        Welcome, <?php display_author_first($db, $EmailAddress);?>
     </welcome-bar>
 
     <nav-box>
@@ -58,7 +55,7 @@ include '../server/util.php';
         <button class="nav-box-btn">
             <img src="../img/icons8-paper-50.png" />
             <br />
-            Papers
+            <a href="papers-authors.php">Papers</a>
         </button>
     </nav-box>
 

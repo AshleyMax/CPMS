@@ -10,7 +10,7 @@
         header("Location: noaccess-login.php");
     }
 
-    //if session username is not empty validate user is registered author
+    //if session username is not empty validate user is registered reviewer
     else
     {
         //if session username is not empty, 
@@ -48,20 +48,14 @@
 
     <!-- Page Content -->
     <welcome-bar>
-        Welcome, <?php get_reviewer_first($db, $EmailAddress);?>
+        Welcome, <?php display_reviewer_first($db, $EmailAddress);?>
     </welcome-bar>
 
     <nav-box>
         <button class="nav-box-btn">
             <img src="../img/icons8-person-50.png" />
-            <br />My Account
+            <br /><a href="myaccount-r.php">My Account</a>
         </button>
-
-        <button class="nav-box-btn">
-            <img src="../img/icons8-dashboard-50.png" />
-            <br />Dashboard
-        </button>
-
 
         <button class="nav-box-btn">
             <img src="../img/icons8-paper-50.png" />

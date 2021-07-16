@@ -1,5 +1,15 @@
 <?php
 
+function logout()
+{
+    session_destroy();
+    unset($_SESSION["username"]);
+    unset($_SESSION["success"]);
+    $_SESSION["message"] = "Successfully logged out.";
+    header("Location: ../php/mainpage.php");
+    exit;
+}
+
 //connects to database
 function connect_db()
 {
@@ -18,6 +28,7 @@ function connect_db()
         die(print_r(sqlsrv_erros, true));
 }
 
+//checks if email exists in database
 function is_email_registered($db, $EmailAddress)
 {
 
@@ -94,7 +105,7 @@ function validate_reviewer($db, $EmailAddress)
 
 
 //retrieve author's first name
-function get_author_first($db, $EmailAddress)
+function display_author_first($db, $EmailAddress)
 {
     $user_first_name = "SELECT CPMS.dbo.Author.FirstName FROM CPMS.dbo.Author WHERE CPMS.dbo.Author.EmailAddress = ?";
 
@@ -110,7 +121,7 @@ function get_author_first($db, $EmailAddress)
 }
 
 //retrieve reviewers first name
-function get_reviewer_first($db, $EmailAddress)
+function display_reviewer_first($db, $EmailAddress)
 {
     $user_first_name = "SELECT CPMS.dbo.Reviewer.FirstName FROM CPMS.dbo.Reviewer WHERE CPMS.dbo.Reviewer.EmailAddress = ?";
 
@@ -145,6 +156,25 @@ function modify_author($db, $EmailAddress, $column, $value)
     {
         die(print_r(sqlsrv_errors(), true));
     }  
+}
+function get_author_info($db, $EmailAddress)
+{
+    $query = "SELECT * FROM CPMS.dbo.Author WHERE CPMS.dbo.Author.EmailAddress = ?";
+
+    $result = sqlsrv_query($db, $query, array($EmailAddress));
+
+    $row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC);
+    return $row;
+}
+
+function get_reviewer_info($db, $EmailAddress)
+{
+    $query = "SELECT * FROM CPMS.dbo.Reviewer WHERE CPMS.dbo.Reviewer.EmailAddress = ?";
+
+    $result = sqlsrv_query($db, $query, array($EmailAddress));
+
+    $row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC);
+    return $row;
 }
 ?>
 

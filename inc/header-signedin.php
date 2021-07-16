@@ -1,3 +1,10 @@
+<?php
+include_once "../server/util.php";
+
+    if (array_key_exists("sign-out-button", $_POST))
+        logout();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +25,10 @@
         </container>
 
         <container>
-            <button class="signup-button" onclick="openSignUpPanel()" name="sign-out-button">Sign Out</button>
+            <form method="post">
+                <button class="signup-button" onclick="" name="sign-out-button">Sign Out</button>
+            </form>
+            
         </container>
     </header>
 </body>

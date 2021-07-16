@@ -10,7 +10,7 @@
      $_SESSION["msg"] = "You must be logged in to view this page.";
      header("Location: noaccess-login.php");
  }
- //if session username is not empty validate user is registered author
+ //if session username is not empty validate user is registered reviewr
  else
  {
      //if session username is not empty, 
@@ -19,16 +19,10 @@
 
      $db = connect_db();
 
-     validate_author($db, $EmailAddress);
- }
-
- if (isset($_SESSION["message"]))
- {
-     echo'<script type="text/javascript">alert("' . $_SESSION['message'] . '");</script>';
-     unset($_SESSION["message"]);
+     validate_reviewer($db, $EmailAddress);
  }
  
- $row = get_author_info($db, $EmailAddress);
+ $row = get_reviewer_info($db, $EmailAddress);
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,13 +41,13 @@
         <sidebar>
             <button class="sidebar-btn">
                 <img src="../img/icons8-person-50.png" />
-                <br /><a href="myaccount-a">My Account</a>
+                <br /><a href="myaccount-r.php">My Account</a>
             </button>
 
             <button class="sidebar-btn">
                 <img src="../img/icons8-paper-50.png" />
                 <br />
-                <a href="papers-authors">Papers</a>
+                <a href="">Papers</a>
             </button>
         </sidebar>
 
@@ -109,7 +103,7 @@
                         <?php echo $row['EmailAddress']; ?>
                         <br><br>
 
-                        <button class="modify-button"><a href="myaccount-a-m.php">Modify Information</a></button>
+                        <button class="modify-button"><a href="myaccount-r-m.php">Modify Information</a></button>
                         
                 </form-container>
                 <h3>&nbsp;&nbsp;&nbsp;&nbsp;Password</h3>
@@ -124,7 +118,7 @@
                 <br><br><br><br><br>
                 <h3>&nbsp;&nbsp;Delete Account </h3>
 
-                <form method = "post" onsubmit="return confirm('Click OK to delete your account. This action cannot be undone.')" action="../server/delete-account-a.php">
+                <form method = "post" onsubmit="return confirm('Click OK to delete your account. This action cannot be undone.')" action="../server/delete-account-r.php">
                     <button class="modify-button" name="delete-account-button">Delete Account</button>
                 </form>
                 
